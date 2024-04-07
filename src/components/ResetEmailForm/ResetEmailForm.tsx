@@ -3,6 +3,7 @@ import { usePostApiEmailSendResetPassword } from "../../API";
 import { useParams, useNavigate } from "react-router-dom";
 
 function ResetPassword() {
+  const [message, setMessage] = useState("");
   const navigate = useNavigate();
   const { token } = useParams(); // 如果你的路由是 /reset-password/:token
   const [newPassword, setNewPassword] = useState("");
@@ -37,6 +38,7 @@ function ResetPassword() {
           />
         </div>
         <button type="submit">重置密碼</button>
+        {message && <div>{message}</div>}
       </form>
     </div>
   );
